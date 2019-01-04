@@ -4,7 +4,9 @@ window.onload=function () {
     var listnodes=document.querySelectorAll('.list li')
     var listup=document.querySelectorAll('.list .up')
     var  conten=document.querySelector('.contentMain')
-
+    var  contlist=document.querySelector('.contentMain li')
+    var num=0
+    var oo=0;
     console.log(conten)
     whit.style.left=listnodes[0].offsetLeft+listnodes[0].offsetWidth/2-whit.offsetWidth/2+'px'
     for (var i = 0; i<listnodes.length;i++ ){
@@ -15,8 +17,47 @@ window.onload=function () {
                 listup[j].style.width=''
             }
             listup[this.mun].style.width='100%'
+            conten.style.top=-this.mun*contlist.offsetHeight+'px'
+             num=this.mun
+        }
+    }
+    document.onmousewheel =function (e) {
+        clearTimeout(oo)
+       oo= setTimeout(function () {
+            console.log(e.wheelDelta)
+            if(e.wheelDelta>0){
+                num--
+                console.log(num)
+                if(num<=0){
+                    num=0
+                }
+                console.log(contlist.offsetHeight)
+                conten.style.top=-num*contlist.offsetHeight+'px'
+                move(num);
+            }else{
+                num++;
+                console.log(num)
+                if(num>=listnodes.length){
+                    num=listnodes.length-1
+                }
+                conten.style.top=-num*contlist.offsetHeight+'px'
+                move(num)
+            }
+        },500)
+
+    }
+
+
+
+
+    function  move(num) {
+        whit.style.left=listnodes[num].offsetLeft+listnodes[num].offsetWidth/2-whit.offsetWidth/2+'px'
+        for (var i = 0; i<listnodes.length;i++ ){
+            whit.style.left=this.offsetLeft+this.offsetWidth/2-whit.offsetWidth/2+'px'
+            for (var j =0; j<listnodes.length;j++){
+                listup[j].style.width=''
+            }
+            listup[num].style.width='100%'
         }
     }
 }
-
-

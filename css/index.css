@@ -1,4 +1,6 @@
-html,body{height: 100%;overflow: hidden;}
+html,body{height: 100%;
+    overflow: hidden;
+}
 html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
 a{text-decoration: none;display: block;}
 li{list-style: none;}
@@ -77,11 +79,17 @@ img{display: block;}
     bottom: 0;
     background-color: antiquewhite;
     width: 100%;
+    overflow: hidden;
 }
 .contentMain{
     height: 500%;
     width: 1100px;
-    margin: 0 auto;
+   position: absolute;
+    left: 50%;
+    top:0;
+    margin-left: -550px;
+    transition: top 0.5s;
+
 }
 
 .contentMain>li{
