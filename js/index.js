@@ -47,7 +47,10 @@ window.onload=function () {
 
     }
 
-
+    window.onresize=function () {
+        conten.style.top=-num*contlist.offsetHeight+'px'
+        move(num)
+    }
 
 
     function  move(num) {
