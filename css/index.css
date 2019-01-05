@@ -134,6 +134,9 @@ img{display: block;}
       position: relative;
       height: 100%;
       width: 100%;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      /*transition: opacity 1s, transform 1s*/
   }
   .home>li{
       position: absolute;
@@ -143,7 +146,15 @@ img{display: block;}
       width: 100%;
       line-height: 520px;
       text-align: center;
+      visibility: hidden;
   }
+.home li.dd{
+    visibility: visible;
+}
+.home li.ss{
+    visibility: hidden;
+}
+
 .home li:nth-child(1){
     background:#dc6c5f
   }
@@ -170,6 +181,78 @@ img{display: block;}
     margin: 2px;
     box-shadow: 0 0 4px rgba(25,25,25,0.8);
     border-radius: 50%;
+
+}
+.rout .routfirst{
+    background-color: white;
+}
+.home li.dd{
+    visibility: visible;
+    animation: leftShow 2s linear;
+}
+.home li.ss{
+    visibility: hidden;
+    animation: ruitHieet 2s linear;
+}
+@keyframes leftShow {
+    0%{
+        visibility: hidden;
+        transform: translateZ(-200px)
+    }
+    50%{
+        transform: translatex(-40%) rotateY(30deg) scale(0.8);
+}
+    100%{
+        visibility: visible;
+    }
+}
+@keyframes ruitHieet {
+    0%{
+        visibility: visible;
+
+    }
+    50%{
+        transform: translatex(40%) rotateY(-30deg) scale(0.8);
+    }
+    100%{
+        visibility: hidden;
+        transform: translateZ(-200px)
+    }
+}
+
+.home li.ys{
+    visibility: visible;
+    animation: ruitS 2s linear;
+}
+.home li.yy{
+    visibility: hidden;
+    animation: ruitH 2s linear;
+}
+
+@keyframes ruitH {
+    0%{
+        visibility: visible;
+    }
+    50%{
+        transform: translatex(-40%) rotateY(30deg) scale(0.8);
+    }
+    100%{
+        visibility: hidden;
+        transform: translateZ(-200px)
+    }
+}
+@keyframes ruitS {
+    0%{
+        visibility: hidden;
+        transform: translateZ(-200px)
+    }
+    50%{
+        transform: translatex(40%) rotateY(-30deg) scale(0.8);
+    }
+    100%{
+        visibility: visible;
+
+    }
 }
 
 

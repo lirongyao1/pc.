@@ -7,7 +7,7 @@ window.onload=function () {
     var  contlist=document.querySelector('.contentMain li')
     var num=0
     var oo=0;
-    console.log(conten)
+    // console.log(conten)
     whit.style.left=listnodes[0].offsetLeft+listnodes[0].offsetWidth/2-whit.offsetWidth/2+'px'
     for (var i = 0; i<listnodes.length;i++ ){
         listnodes[i].mun=i;
@@ -52,7 +52,31 @@ window.onload=function () {
         move(num)
     }
 
+    //第一屏
+    firt()
+    function firt() {
+        var lastindae=0;
+        var listNoset=document.querySelectorAll('.rout li')
+        var homeli=document.querySelectorAll('.home li')
+        console.log(listNoset)
+        for(var i = 0; i<listNoset.length;i++){
+            listNoset[i].index=i;
+            listNoset[i].onclick=function () {
+                for (var j=0; j<listNoset.length;j++)
+                homeli[this.index].className='commonTitle dd'
+                homeli[lastindae].className='commonTitle ss'
+                lastindae=this.index
+            }
+        }
+    }
 
+
+
+
+
+
+
+    // 公共hanshu
     function  move(num) {
         whit.style.left=listnodes[num].offsetLeft+listnodes[num].offsetWidth/2-whit.offsetWidth/2+'px'
         for (var i = 0; i<listnodes.length;i++ ){
