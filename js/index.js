@@ -56,21 +56,35 @@ window.onload=function () {
     firt()
     function firt() {
         var lastindae=0;
+        var chushi=0
+        var timelast=0;
         var listNoset=document.querySelectorAll('.rout li')
         var homeli=document.querySelectorAll('.home li')
         console.log(listNoset)
         for(var i = 0; i<listNoset.length;i++){
             listNoset[i].index=i;
             listNoset[i].onclick=function () {
-                for (var j=0; j<listNoset.length;j++)
-                homeli[this.index].className='commonTitle dd'
-                homeli[lastindae].className='commonTitle ss'
+                var time=Date.now()
+                if(time-timelast<2000){
+                    return
+                }
+                if(this.index ==lastindae)return;
+                if(this.index>lastindae){
+                    homeli[this.index].className='commonTitle ys'
+                    homeli[lastindae].className='commonTitle yy'
+                }else {
+                    homeli[this.index].className='commonTitle dd'
+                    homeli[lastindae].className='commonTitle ss'
+                }
+                this.className='routfirst'
+                listNoset[lastindae].className='';
                 lastindae=this.index
+                timelast=time
             }
         }
     }
 
-
+   //第二屏
 
 
 
