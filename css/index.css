@@ -1,6 +1,17 @@
 html,body{height: 100%;
     overflow: hidden;
 }
+.commonText{
+    color:white;
+    line-height:1.5;
+    font-size:15px;
+}
+.course_content{
+position:relative;
+z-index:5;
+width:400px;
+margin-left:50px;
+}
 .commonTitle{
     color:#009ee0;
     font-size:80px;
@@ -155,7 +166,8 @@ img{display: block;}
 }
 
 .home li:nth-child(1){
-    background:#dc6c5f
+    background:#dc6c5f;
+    visibility:visible;
   }
 .home li:nth-child(2){
     background:#95dc84;
@@ -253,6 +265,131 @@ img{display: block;}
 
     }
 }
+.course_photo{
+    position: absolute;
+    z-index: 5;
+    right: 50px;
+    top: 70px;
+    width: 480px;
+}
+.course_photo li{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 132px;
+
+}
+.course_photo li .front{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/pcwelt.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 2s;
+    backface-visibility: hidden;
+}
+.course_photo li .back{
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: transform 1s;
+    background-color: #dc6c5f;
+}
+.course_photo li:hover .back{
+    transform: rotateY(360deg);
+}
+.course_photo li:hover .front{
+    transform: rotateY(180deg);
+}
+.bootmo>li{
+    position: relative;
+    float: left;
+    width: 220px;
+    height: 133px;
+    margin: 0 1px;
+    overflow: hidden;
 
 
+}
+.bootmo li:last-child{
+    width: 332px;
+    height: 133px;
+}
+.bootmo{
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+.bootmo li img{
+    transition: transform 1s;
+}
 
+.ww{
+    margin: 50px 0 100px 50px;
+}
+.zz{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: rgba(25,25,25,0.8);
+    opacity: 0;
+    transition: opacity 1s;
+}
+.xiao{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 32px;
+    height: 34px;
+    background-image: url("../img/zoomico.png");
+    transition:background-position 1s;
+}
+.robot{
+    position: absolute;
+    left: 900px;
+    top: 170px;
+    width: 167px;
+    height: 191px;
+    animation: rotei 2s linear infinite ;
+
+}
+.po{
+    position: relative;
+}
+.bootmo li:hover img{
+    transform: rotate(40deg) scale(1.5);
+}
+.bootmo li:hover .zz{
+    opacity: 1;
+}
+.bootmo li:hover .zz .xiao{
+    background-position: 0 -35px;
+}
+
+@keyframes rotei {
+    /*0%{*/
+    /*}*/
+    /*49%{left: 500px*/
+        /*}*/
+    /*50%{*/
+        /*left: 500px;*/
+        /*transform: rotateY(180deg)*/
+
+    /*}*/
+    /*100%{transform: rotateY(180deg)*/
+       /*}*/
+    0%{}
+    49%{transform: translateX(-400px)}
+    50%{transform: translateX(-400px) rotateY(180deg)}
+    100%{transform: rotateY(180deg)}
+}
