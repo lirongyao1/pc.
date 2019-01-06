@@ -5,6 +5,7 @@ window.onload=function () {
     var listup=document.querySelectorAll('.list .up')
     var  conten=document.querySelector('.contentMain')
     var  contlist=document.querySelector('.contentMain li')
+    var loo=document.querySelector('.loo')
     var num=0
     var oo=0;
     // console.log(conten)
@@ -21,6 +22,7 @@ window.onload=function () {
              num=this.mun
         }
     }
+    //点击事件
     document.onmousewheel =function (e) {
         clearTimeout(oo)
        oo= setTimeout(function () {
@@ -58,6 +60,8 @@ window.onload=function () {
         var lastindae=0;
         var chushi=0
         var timelast=0;
+        var ss=0;
+        var pp =0;
         var listNoset=document.querySelectorAll('.rout li')
         var homeli=document.querySelectorAll('.home li')
         console.log(listNoset)
@@ -80,9 +84,33 @@ window.onload=function () {
                 listNoset[lastindae].className='';
                 lastindae=this.index
                 timelast=time
+                ss=this.index
             }
         }
+        loo.onmouseenter=function () {
+            clearInterval(pp)
+        }
+        loo.onmouseleave=function () {
+            bb()
+        }
+        bb()
+        function  bb() {
+            pp= setTimeout(function () {
+                var listNoset=document.querySelectorAll('.rout li')
+                var homeli=document.querySelectorAll('.home li')
+                ss++
+                if(ss===4)ss=0;
+                homeli[ss].className='commonTitle ys'
+                homeli[lastindae].className='commonTitle yy'
+                listNoset[ss].className='routfirst';
+                listNoset[lastindae].className='';
+                lastindae=ss
+                timelast=Date.now();
+                bb()
+            },2500)
+        }
     }
+
 
    //第二屏
 
@@ -102,3 +130,5 @@ window.onload=function () {
         }
     }
 }
+
+
