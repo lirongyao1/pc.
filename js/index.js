@@ -10,6 +10,7 @@ window.onload=function () {
     var oo=0;
     // console.log(conten)
     whit.style.left=listnodes[0].offsetLeft+listnodes[0].offsetWidth/2-whit.offsetWidth/2+'px'
+    //绑定及点击小白事件
     for (var i = 0; i<listnodes.length;i++ ){
         listnodes[i].mun=i;
         listnodes[i].onclick=function () {
@@ -56,6 +57,7 @@ window.onload=function () {
 
     //第一屏
     firt()
+
     function firt() {
         var lastindae=0;
         var chushi=0
@@ -93,6 +95,8 @@ window.onload=function () {
         loo.onmouseleave=function () {
             bb()
         }
+
+        /*自动轮播*/
         bb()
         function  bb() {
             pp= setTimeout(function () {
@@ -113,11 +117,6 @@ window.onload=function () {
 
 
    //第二屏
-
-
-
-
-
     // 公共hanshu
     function  move(num) {
         whit.style.left=listnodes[num].offsetLeft+listnodes[num].offsetWidth/2-whit.offsetWidth/2+'px'
@@ -129,6 +128,7 @@ window.onload=function () {
             listup[num].style.width='100%'
         }
     }
+
 }
 
 
