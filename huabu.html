@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: grey;
+        }
+        #mycanvas{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="mycanvas" width="400" height="400">
+    不支持canvas
+</canvas>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var can = document.getElementById('mycanvas');
+        var kk=can.getContext('2d');
+        var arrp=[];
+        pp();
+        function pp() {
+            setTimeout(function () {
+                var x= Math.random()* can.width;
+                var y=can.height;
+                var cr=Math.random()*10+2;
+                var deg=0;
+                var s=Math.random()*50+20;
+                var r=Math.floor(Math.random()*255);
+                var g=Math.floor(Math.random()*255);
+                var b=Math.floor(Math.random()*255);
+                arrp.push({
+                    x:x,
+                    y:y,
+                    cr:cr,
+                    deg:deg,
+                    s:s,
+                    r:r,
+                    g:g,
+                    b:b
+                });
+                pp();
+            },50);
+        }
+
+fn()
+        function fn() {
+            setTimeout(function () {
+
+                kk.clearRect(0,0,can.width,can.height);
+                for (var i = 0; i<arrp.length;i++){
+                    arrp[i].deg+=5;
+                    kk.fillStyle='rgba('+arrp[i].r+','+arrp[i].g+','+arrp[i].b+')';
+                    var deg=arrp[i].deg*Math.PI/180;
+                    var x=Math.sin(deg)*arrp[i].s+arrp[i].x;
+                    var y= arrp[i].y-deg*arrp[i].s;
+                    kk.beginPath();
+                    kk.arc(x,y,arrp[i].cr,0,2*Math.PI,false);
+                    kk.fill()
+                }
+                fn()
+            },1000/60)
+        }
+
+    }
+</script>
+</html>
