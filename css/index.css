@@ -575,8 +575,10 @@ height: 448px;
     position: absolute;
     height: 10px;
     top:0;
+    width: 0;
     bottom: 0;
     margin: auto 0;
     background-color: white;
     z-index: 101;
+    transition: width 1s;
 }

@@ -1,5 +1,5 @@
 
-window.onload=function () {
+window.addEventListener('DOMContentLoaded',function () {
     var whit=document.querySelector('.whit')
     var listnodes=document.querySelectorAll('.list li')
     var listup=document.querySelectorAll('.list .up')
@@ -243,10 +243,13 @@ for (var i = 0; i < teamli.length; i++) {
     for (var i = 0; i <arr .length; i++) {
         var img=new Image()
         img.src='img/'+arr[i]+''
+        // baitiao.style.width=cc*100+'%';l
         img.onload=function () {
             pp++
             console.log(pp/arr.length*100)
-            baitiao.style.width=pp/arr.length*100+'%'
+            var cc=pp/arr.length
+            baitiao.style.width=''+ cc*100 +'%';
+
             if(pp==arr.length){
                 up.style.height=0
                 down.style.height=0
@@ -260,9 +263,10 @@ for (var i = 0; i < teamli.length; i++) {
                 }
             }
         }
+
     }
 
-}
+});
 
 
 
